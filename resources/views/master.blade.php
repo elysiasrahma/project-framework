@@ -9,11 +9,11 @@
     <h1>@yield('page-title', 'App Pegawai')</h1>
         <nav>
             <ul>
-                <li><a href="{{ url('/employee') }}">Employee</a> </li>
-                <li><a href="{{ url('/department') }}">Department</a> </li>
-                <li><a href="{{ url('/attendance') }}">Attendance</a> </li>
-                <li><a href="{{ url('/report') }}">Report</a> </li>
-                <li><a href="{{ url('/settings') }}">Setting</a> </li>
+                <li><a href="{{ route('employees.index') }}">Employee</a></li>
+                <li><a href="{{ route('departments.index') }}">Department</a></li>
+                <li><a href="{{ route('attendance.index') }}">Attendance</a></li>
+                <li><a href="{{ route('positions.index') }}">Positions</a></li>
+                <li><a href="{{ route('salaries.index') }}">Salaries</a></li>
             </ul>
         </nav>
     </header>

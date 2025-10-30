@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('employees', EmployeeController::class);
 Route::resource('departments', DepartmentController::class);
-Route::resource('attendance', AttendanceController::class);
+Route::resource('attendances', AttendanceController::class);
 Route::resource('positions', PositionController::class);
 Route::resource('salaries', SalariesController::class);
 Route::get('/', function () {

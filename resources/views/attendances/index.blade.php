@@ -22,16 +22,17 @@
                 </tr>
             </thead>
                 <tbody>
-                    @foreach($attendance as $attend)
+                    @foreach($attendances as $attend)
                     <tr>
                         <td>{{ $attend->karyawan_id }}</td>
                         <td>{{ $attend->tanggal }}</td>
                         <td>{{ $attend->waktu_masuk }}</td>
+                        <td>{{ $attend->waktu_keluar }}</td>
                         <td>{{ $attend->status_absensi }}</td>
                         <td>
-                            <a href="{{ route('attendance.show', $attendance->id) }}">Detail</a>
-                            <a href="{{ route('attendance.edit', $attendance->id) }}">Edit</a>
-                            <form action="{{ route('attendance.destroy', $attendance->id) }}" method="POST" style="display:inline;">
+                            <a href="{{ route('attendances.show', $attend->id) }}">Detail</a>
+                            <a href="{{ route('attendances.edit', $attend->id) }}">Edit</a>
+                            <form action="{{ route('attendances.destroy', $attend->id) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" onclick="return confirm('Yakin ingin menghapus?')">Delete</button>

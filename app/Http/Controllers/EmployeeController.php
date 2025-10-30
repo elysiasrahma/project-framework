@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
+use App\Models\Position;
+use App\Models\Department;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
@@ -22,7 +24,9 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('employees.create');
+        $departments = Department::all();
+        $positions = Position::all();
+        return view('employees.create', compact('departments', 'positions'));
     }
 
     /**
@@ -31,13 +35,15 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_lengkap'  => 'required|string|max:255',
-            'email'         => 'required|email|max:255',
-            'nomor_telepon' => 'required|string|max:20',
+            'nama_lengkap'  => 'required|string|max:100',
+            'email'         => 'required|email|max:100',
+            'nomor_telepon' => 'required|string|max:100',
             'tanggal_lahir' => 'required|date',
-            'alamat'        => 'required|string|max:255',
+            'alamat'        => 'required|string',
             'tanggal_masuk' => 'required|date',
-            'status'        => 'required|string|max:255',
+            'departemen_id' => 'required|exists:departments,id',
+            'jabatan_id'    => 'required|exists:positions,id',
+            'status'        => 'required|in:aktif,nonaktif',
         ]);
         Employee::create($request->all());
         return redirect()->route('employees.index');
@@ -57,8 +63,10 @@ class EmployeeController extends Controller
      */
     public function edit(string $id)
     {
+        $department = Department::all();
+        $jabatan = Position::all();
         $employee = Employee::find($id);
-        return view('employees.edit', compact('employee'));
+        return view('employees.edit', compact('employee', 'department', 'jabatan'));
     }
 
     /**
@@ -67,12 +75,14 @@ class EmployeeController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'nama_lengkap'  => 'required|string|max:255',
-            'email'         => 'required|email|max:255',
-            'nomor_telepon' => 'required|string|max:20',
+            'nama_lengkap'  => 'required|string|max:100',
+            'email'         => 'required|email|max:100',
+            'nomor_telepon' => 'required|string|max:100',
             'tanggal_lahir' => 'required|date',
             'alamat'        => 'required|string|max:255',
             'tanggal_masuk' => 'required|date',
+            'departemen_id' => 'required|exists:departments,id',
+            'jabatan_id' => 'required|exists:positions,id',
             'status'        => 'required|string|max:255',
         ]);
         $employee = Employee::findOrFail($id);
@@ -83,6 +93,8 @@ class EmployeeController extends Controller
             'tanggal_lahir',
             'alamat',
             'tanggal_masuk',
+            'departemen_id',
+            'jabatan_id',
             'status',
         ]));
         return redirect()->route('employees.index');

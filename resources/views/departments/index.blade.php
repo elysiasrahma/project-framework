@@ -14,12 +14,13 @@
             <thead>
                 <tr>
                     <th>Nama Departemen</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
                 <tbody>
                     @foreach($department as $dept)
                     <tr>
-                        <td>{{ $dept->nama_department }}</td>
+                        <td>{{ $dept->nama_departemen }}</td>
                         <td>
                             <a href="{{ route('departments.show', $dept->id) }}">Detail</a>
                             <a href="{{ route('departments.edit', $dept->id) }}">Edit</a>

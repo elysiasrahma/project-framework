@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Form Input Pegawai</title>
 </head>
+
 <body>
     <h1 class="mb-4">Form Pegawai</h1>
     <form action="{{  route('employees.store') }}" method="POST">
@@ -42,6 +44,26 @@
                 </td>
             </tr>
             <tr>
+                <td><label for="departemen_id">Departemen: </label></td>
+                <td>
+                    <select id="departemen_id" name="departemen_id">
+                        @foreach ($departments as $dept)
+                        <option value="{{ $dept->id }}">{{ $dept->nama_departemen }}</option>
+                        @endforeach
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="jabatan_id">Jabatan: </label></td>
+                <td>
+                    <select id="jabatan_id" name="jabatan_id">
+                        @foreach ($positions as $jabatan)
+                        <option value="{{ $jabatan->id }}">{{ $jabatan->nama_jabatan }}</option>
+                        @endforeach
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <td colspan="2" style="text-align:right;">
                     <button type="submit">Simpan</button>
                 </td>
@@ -49,4 +71,5 @@
         </table>
     </form>
 </body>
+
 </html>

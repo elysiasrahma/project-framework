@@ -22,11 +22,11 @@
                     @foreach($positions as $position)
                     <tr>
                         <td>{{ $position->nama_jabatan }}</td>
-                        <td>{{ $position->gaji_pokok }}</td>
+                        <td>Rp {{ number_format($position->gaji_pokok) }}</td>
                         <td>
-                            <a href="{{ route('positions.show', $positions->id) }}">Detail</a>
-                            <a href="{{ route('positions.edit', $positions->id) }}">Edit</a>
-                            <form action="{{ route('positions.destroy', $positions->id) }}" method="POST" style="display:inline;">
+                            <a href="{{ route('positions.show', $position->id) }}">Detail</a>
+                            <a href="{{ route('positions.edit', $position->id) }}">Edit</a>
+                            <form action="{{ route('positions.destroy', $position->id) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" onclick="return confirm('Yakin ingin menghapus?')">Delete</button>

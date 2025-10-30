@@ -8,19 +8,23 @@
     <table border="1" cellpadding="8" cellspacing="0">
          <tr>
             <th>Karyawan ID</th>
-            <td>{{ $attend -> karyawan_id }}</td>
+            <td>{{ $attendance -> karyawan_id }}</td>
+         </tr>
+         <tr>
+            <th>Tanggal</th>
+            <td>{{ $attendance -> tanggal }}</td>
          </tr>
          <tr>
             <th>Waktu Masuk</th>
-            <td>{{ $attend -> waktu_masuk }}</td>
+            <td>{{ $attendance -> waktu_masuk }}</td>
          </tr>
          <tr>
             <th>Waktu Keluar</th>
-            <td>{{ $attend -> waktu_keluar }}</td>
+            <td>{{ $attendance -> waktu_keluar }}</td>
          </tr>
          <tr>
             <th>Status Absensi</th>
-            <td>{{ $attend -> status_absensi }}</td>
+            <td>{{ $attendance -> status_absensi }}</td>
          </tr>
     </table>
 </body>

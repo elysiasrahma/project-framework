@@ -33,11 +33,12 @@ class SalariesController extends Controller
     {
         $request->validate([
             'karyawan_id' => 'required|exists:employees,id',
-            'bulan' => 'required|date_format:Y-m',
-            'gaji_pokok' => 'required|numeric|min:0',
-            'tunjangan' => 'required|numeric|min:0',
-            'potongan' => 'required|numeric|min:0',
+            'bulan' => 'required|string|max:10',
+            'gaji_pokok' => 'required|decimal:0,2|min:0',
+            'tunjangan' => 'required|decimal:0,2|min:0',
+            'potongan' => 'required|decimal:0,2|min:0',
         ]);
+
 
         $total_gaji = $request->gaji_pokok + $request->tunjangan - $request->potongan;
 
@@ -79,10 +80,10 @@ class SalariesController extends Controller
     {
         $request->validate([
             'karyawan_id' => 'required|exists:employees,id',
-            'bulan' => 'required|date_format:Y-m',
-            'gaji_pokok' => 'required|numeric|min:0',
-            'tunjangan' => 'required|numeric|min:0',
-            'potongan' => 'required|numeric|min:0',
+            'bulan' => 'required|string|max:10',
+            'gaji_pokok' => 'required|decimal:0,2|min:0',
+            'tunjangan' => 'required|decimal:0,2|min:0',
+            'potongan' => 'required|decimal:0,2|min:0',
         ]);
 
         $salary = Salary::findOrFail($id);

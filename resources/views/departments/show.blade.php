@@ -8,8 +8,10 @@
     <table border="1" cellpadding="8" cellspacing="0">
          <tr>
             <th>Nama Departemen</th>
-            <td>{{ $department -> nama_departemen }}</td>
          </tr>
+         <tr>
+            <td>{{ $department -> nama_departemen }}</td>
+        </tr>
     </table>
 </body>
 </html>

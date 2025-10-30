@@ -5,7 +5,16 @@
 </head>
 <body>
     <h2>Edit Data Pegawai</h2>
-    <form action="{{ route('employees.update', $attendance->id) }}" method="POST">
+    @if ($errors->any())
+                <div class="text-red-500 bg-white/10 p-2 rounded-md mb-4">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+    <form action="{{ route('attendances.update', $attendance->id) }}" method="POST">
         @csrf
         @method('PUT')
         <table>
@@ -29,11 +38,11 @@
             <tr>
                 <td>Status</td>
                 <td>
-                    <select name="status">
-                        <option value="Hadir" {{ old('status', $attendance->status) == 'hadir' ? 'selected' : '' }}>Hadir</option>
-                        <option value="Izin" {{ old('status', $attendance->status) == 'izin' ? 'selected' : '' }}>Izin</option>
-                        <option value="Sakit" {{ old('status', $attendance->status) == 'sakit' ? 'selected' : '' }}>Sakit</option>
-                        <option value="Alpha" {{ old('status', $attendance->status) == 'alpha' ? 'selected' : '' }}>Alpha</option>
+                    <select name="status_absensi">
+                        <option value="hadir" {{ old('status_absensi', $attendance->status_absensi) == 'hadir' ? 'selected' : '' }}>Hadir</option>
+                        <option value="izin" {{ old('status_absensi', $attendance->status_absensi) == 'izin' ? 'selected' : '' }}>Izin</option>
+                        <option value="sakit" {{ old('status_absensi', $attendance->status_absensi) == 'sakit' ? 'selected' : '' }}>Sakit</option>
+                        <option value="alpha" {{ old('status_absensi', $attendance->status_absensi) == 'alpha' ? 'selected' : '' }}>Alpha</option>
                     </select>
                 </td>
             </tr>

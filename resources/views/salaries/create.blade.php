@@ -5,6 +5,15 @@
 </head>
 <body>
     <h1 class="mb-4">Form Pegawai</h1>
+    @if ($errors->any())
+                <div class="text-red-500 bg-white/10 p-2 rounded-md mb-4">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
     <form action="{{  route('salaries.store') }}" method="POST">
         @csrf
         <table>

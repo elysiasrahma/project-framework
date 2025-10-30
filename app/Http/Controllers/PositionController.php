@@ -34,6 +34,7 @@ class PositionController extends Controller
             'gaji_pokok' => 'required|numeric|min:0',
         ]);
 
+
         Position::create($request->all());
 
         return redirect()->route('positions.index')->with('success', 'Data jabatan berhasil ditambahkan.');

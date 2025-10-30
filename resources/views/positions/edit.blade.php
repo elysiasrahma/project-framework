@@ -5,17 +5,17 @@
 </head>
 <body>
     <h2>Edit Data Pegawai</h2>
-    <form action="{{ route('positions.update', $positions->id) }}" method="POST">
+    <form action="{{ route('positions.update', $position->id) }}" method="POST">
         @csrf
         @method('PUT')
         <table>
             <tr>
                 <td>Nama Jabatan</td>
-                <td><input type="text" name="nama_jabatan" value="{{ old('nama_jabatan', $positions->nama_jabatan) }}"></td>
+                <td><input type="text" name="nama_jabatan" value="{{ old('nama_jabatan', $position->nama_jabatan) }}"></td>
             </tr>
             <tr>
                 <td>Gaji Pokok</td>
-                <td><input type="decimal" name="gaji_pokok" value="{{ old('gaji_pokok', $positions->gaji_pokok) }}"></td>
+                <td><input type="decimal" name="gaji_pokok" value="{{ old('gaji_pokok', $position->gaji_pokok) }}"></td>
             </tr>
             <tr>
                 <td colspan="2">

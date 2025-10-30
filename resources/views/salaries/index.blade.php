@@ -30,9 +30,9 @@
                         <td>{{ $salary->tunjangan }}</td>
                         <td>{{ $salary->potongan }}</td>
                         <td>
-                            <a href="{{ route('salaries.show', $salaries->id) }}">Detail</a>
-                            <a href="{{ route('salaries.edit', $salaries->id) }}">Edit</a>
-                            <form action="{{ route('salaries.destroy', $salaries->id) }}" method="POST" style="display:inline;">
+                            <a href="{{ route('salaries.show', $salary->id) }}">Detail</a>
+                            <a href="{{ route('salaries.edit', $salary->id) }}">Edit</a>
+                            <form action="{{ route('salaries.destroy', $salary->id) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" onclick="return confirm('Yakin ingin menghapus?')">Delete</button>

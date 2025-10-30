@@ -35,9 +35,10 @@ class AttendanceController extends Controller
             'karyawan_id' => 'required|exists:employees,id',
             'tanggal' => 'required|date',
             'waktu_masuk' => 'required|date_format:H:i',
-            'waktu_keluar' => 'nullable|date_format:H:i',
-            'status_absensi' => 'required|string|max:50',
+            'waktu_keluar' => 'required|date_format:H:i',
+            'status_absensi' => 'required|in:hadir,izin,sakit,alpha'
         ]);
+
 
         Attendance::create($request->all());
 
@@ -51,7 +52,6 @@ class AttendanceController extends Controller
     {
         $attendance = Attendance::with('employee')->findOrFail($id);
         return view('attendances.show', compact('attendance'));
-
     }
 
     /**
@@ -73,12 +73,18 @@ class AttendanceController extends Controller
             'karyawan_id' => 'required|exists:employees,id',
             'tanggal' => 'required|date',
             'waktu_masuk' => 'required|date_format:H:i',
-            'waktu_keluar' => 'nullable|date_format:H:i',
-            'status_absensi' => 'required|string|max:50',
+            'waktu_keluar' => 'required|date_format:H:i',
+            'status_absensi' => 'required|in:hadir,izin,sakit,alpha'
         ]);
 
         $attendance = Attendance::findOrFail($id);
-        $attendance->update($request->all());
+        $attendance->update($request->only([
+            'karyawan_id',
+            'tanggal',
+            'waktu_masuk',
+            'waktu_keluar',
+            'status_absensi',
+        ]));
 
         return redirect()->route('attendances.index')->with('success', 'Data absensi berhasil diperbarui.');
 

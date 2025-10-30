@@ -11,6 +11,14 @@
             <td>{{ $employee -> nama_lengkap }}</td>
          </tr>
          <tr>
+            <th>Jabatan</th>
+            <td>{{ $employee -> position -> nama_jabatan }}</td>
+         </tr>
+         <tr>
+            <th>Departemen</th>
+            <td>{{ $employee -> department -> nama_departemen }}</td>
+         </tr>
+         <tr>
             <th>Email</th>
             <td>{{ $employee -> email }}</td>
          </tr>

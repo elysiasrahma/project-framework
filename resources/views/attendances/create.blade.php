@@ -5,7 +5,16 @@
 </head>
 <body>
     <h1 class="mb-4">Form Pegawai</h1>
-    <form action="{{  route('positions.store') }}" method="POST">
+    @if ($errors->any())
+                <div class="text-red-500 bg-white/10 p-2 rounded-md mb-4">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+    <form action="{{  route('attendances.store') }}" method="POST">
         @csrf
         <table>
             <tr>
@@ -27,7 +36,7 @@
             <tr>
                 <td><label for="status">Status: </label></td>
                 <td>
-                    <select id="status_absensi" name="status_abensi">
+                    <select id="status_absensi" name="status_absensi">
                         <option value="hadir">Hadir</option>
                         <option value="izin">Izin</option>
                         <option value="sakit">Sakit</option>

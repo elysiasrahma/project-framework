@@ -54,7 +54,7 @@ class EmployeeController extends Controller
      */
     public function show(string $id)
     {
-        $employee = Employee::find($id);
+        $employee = Employee::findOrFail($id);
         return view('employees.show', compact('employee'));
     }
 
@@ -85,6 +85,7 @@ class EmployeeController extends Controller
             'jabatan_id' => 'required|exists:positions,id',
             'status'        => 'required|string|max:255',
         ]);
+        
         $employee = Employee::findOrFail($id);
         $employee->update($request->only([
             'nama_lengkap',

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,4 +24,4 @@
         <p>&copy; {{ date('Y') }} App pegawai</p>
     </footer>
 </body>
-</html>
+</html> -->

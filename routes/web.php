@@ -13,6 +13,11 @@ Route::resource('departments', DepartmentController::class);
 Route::resource('attendances', AttendanceController::class);
 Route::resource('positions', PositionController::class);
 Route::resource('salaries', SalariesController::class);
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [EmployeeController::class, 'index'])->name('home');
+Route::get('/employees/{id}', [EmployeeController::class, 'show'])->name('employees.show');
+Route::put('/employees/{id}', [EmployeeController::class, 'update'])->name('employees.update');
+
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });

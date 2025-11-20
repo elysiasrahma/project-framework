@@ -8,7 +8,7 @@
     <h1 class="mb-4 text-xl font-semibold text-[#4b3b2b]">Daftar Departemen</h1>
 
     <div class="mb-6 text-right">
-        <a href="{{ route('employees.create') }}"
+        <a href="{{ route('departments.create') }}"
             class="inline-block px-4 py-2 bg-[#a47c48] text-white text-sm font-medium rounded-md shadow hover:bg-[#8f683c] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#a47c48] transition">
             + Tambah
         </a>

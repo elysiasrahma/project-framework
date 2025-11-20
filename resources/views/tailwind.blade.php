@@ -1,5 +1,5 @@
     <!DOCTYPE html>
-    <html class="h-full bg-[#f7f3ef]"> {{-- warna dasar: krem muda --}}
+    <html class="h-full bg-[#f7f3ef]">
 
     <head>
         <meta charset="utf-8">
@@ -20,15 +20,38 @@
                         <div class="flex items-center">
                             <div class="shrink-0">
                                 <img src="{{ asset('sandwich.png') }}" alt="Sited" class="w-16 h-16">
-
                             </div>
                             <div class="hidden md:block">
                                 <div class="ml-10 flex items-baseline space-x-4">
-                                    <a href="{{ route('employees.index') }}" class="rounded-md bg-[#a47c48]/60 px-3 py-2 text-sm font-medium text-white shadow-sm">Employee</a>
-                                    <a href="{{ route('departments.index') }}" class="rounded-md px-3 py-2 text-sm font-medium text-[#4b3b2b] hover:bg-[#d8c2a7]/60 hover:text-[#2d1d0d]">Department</a>
-                                    <a href="{{ route('attendances.index') }}" class="rounded-md px-3 py-2 text-sm font-medium text-[#4b3b2b] hover:bg-[#d8c2a7]/60 hover:text-[#2d1d0d]">Attendance</a>
-                                    <a href="{{ route('positions.index') }}" class="rounded-md px-3 py-2 text-sm font-medium text-[#4b3b2b] hover:bg-[#d8c2a7]/60 hover:text-[#2d1d0d]">Positions</a>
-                                    <a href="{{ route('salaries.index') }}" class="rounded-md px-3 py-2 text-sm font-medium text-[#4b3b2b] hover:bg-[#d8c2a7]/60 hover:text-[#2d1d0d]">Salaries</a>
+                                    <a href="{{ route('employees.index') }}"
+                                        class="rounded-md px-3 py-2 text-sm font-medium
+                                        {{ Request::routeIs('employees.*') ? 'bg-[#a47c48]/60 text-white shadow-sm' : 'text-[#4b3b2b] hover:bg-[#d8c2a7]/60 hover:text-[#2d1d0d]' }}">
+                                        Employee
+                                    </a>
+
+                                    <a href="{{ route('departments.index') }}"
+                                        class="rounded-md px-3 py-2 text-sm font-medium
+                                        {{ Request::routeIs('departments.*') ? 'bg-[#a47c48]/60 text-white shadow-sm' : 'text-[#4b3b2b] hover:bg-[#d8c2a7]/60 hover:text-[#2d1d0d]' }}">
+                                        Department
+                                    </a>
+
+                                    <a href="{{ route('attendances.index') }}"
+                                        class="rounded-md px-3 py-2 text-sm font-medium
+                                       {{ Request::routeIs('attendances.*') ? 'bg-[#a47c48]/60 text-white shadow-sm' : 'text-[#4b3b2b] hover:bg-[#d8c2a7]/60 hover:text-[#2d1d0d]' }}">
+                                        Attendance
+                                    </a>
+
+                                    <a href="{{ route('positions.index') }}"
+                                        class="rounded-md px-3 py-2 text-sm font-medium
+                                        {{ Request::routeIs('positions.*') ? 'bg-[#a47c48]/60 text-white shadow-sm' : 'text-[#4b3b2b] hover:bg-[#d8c2a7]/60 hover:text-[#2d1d0d]' }}">
+                                        Positions
+                                    </a>
+
+                                    <a href="{{ route('salaries.index') }}"
+                                        class="rounded-md px-3 py-2 text-sm font-medium
+                                        {{ Request::routeIs('salaries.*') ? 'bg-[#a47c48]/60 text-white shadow-sm' : 'text-[#4b3b2b] hover:bg-[#d8c2a7]/60 hover:text-[#2d1d0d]' }}">
+                                        Salaries
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -100,7 +123,7 @@
             {{-- HEADER --}}
             <header class="relative bg-[#e7d9c3] border-y border-[#c9b598]/50 shadow-sm">
                 <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                    <h1 class="text-3xl font-bold tracking-tight text-[#4b3b2b]">Home</h1>
+                    <h1 class="text-3xl font-bold tracking-tight text-[#4b3b2b]">App Pegawai</h1>
                 </div>
             </header>
 

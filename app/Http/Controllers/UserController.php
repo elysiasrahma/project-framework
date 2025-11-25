@@ -36,7 +36,10 @@ class UserController extends Controller
 
         // Jika validasi lolos → coba login
         if (Auth::attempt($request->only('email', 'password'))) {
-            Swal::toastSuccess('Login berhasil!');
+            Swal::toastSuccess([
+                'title' => 'Berhasil!',
+                'text' => 'Login berhasil!'
+            ]);
             return redirect()->route('employees.index');
         }
 
@@ -75,12 +78,29 @@ class UserController extends Controller
             'password' => 'required|min:6|confirmed',
         ]);
 
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),   
-        ]);
+        try {
+            // Buat user sekali saja
+            User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+            ]);
 
-        return redirect()->route('login')->with('success', 'Register berhasil! Silahkan login.');
+            // Notifikasi sukses
+            Swal::success([
+                'title' => 'Berhasil!',
+                'text' => 'Register berhasil! Silakan login.',
+            ]);
+
+            return redirect()->route('users.login');
+        } catch (\Exception $e) {
+            // Notifikasi gagal
+            Swal::error([
+                'title' => 'Gagal!',
+                'text' => 'Register gagal, coba lagi.',
+            ]);
+
+            return redirect()->back()->withInput();
+        }
     }
 }

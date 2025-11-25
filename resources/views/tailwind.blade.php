@@ -52,6 +52,11 @@
                                         {{ Request::routeIs('salaries.*') ? 'bg-[#a47c48]/60 text-white shadow-sm' : 'text-[#4b3b2b] hover:bg-[#d8c2a7]/60 hover:text-[#2d1d0d]' }}">
                                         Salaries
                                     </a>
+                                    <a href="{{ route('shifts.index') }}"
+                                        class="rounded-md px-3 py-2 text-sm font-medium
+                                        {{ Request::routeIs('shifts.*') ? 'bg-[#a47c48]/60 text-white shadow-sm' : 'text-[#4b3b2b] hover:bg-[#d8c2a7]/60 hover:text-[#2d1d0d]' }}">
+                                        Shifts
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -83,7 +88,7 @@
                                         anchor="bottom end" popover class="w-48 origin-top-right rounded-md bg-[#f9f6f1] py-1 shadow-lg border border-[#d9c6a5]/50">
                                         <a href="#" class="block px-4 py-2 text-sm text-[#4b3b2b] hover:bg-[#f1e5d1]">Your profile</a>
                                         <a href="#" class="block px-4 py-2 text-sm text-[#4b3b2b] hover:bg-[#f1e5d1]">Settings</a>
-                                        <a href="#" class="block px-4 py-2 text-sm text-[#4b3b2b] hover:bg-[#f1e5d1]">Sign out</a>
+                                        <a href="welcome" class="block px-4 py-2 text-sm text-[#4b3b2b] hover:bg-[#f1e5d1]">Sign out</a>
                                     </el-menu>
                                 </el-dropdown>
                             </div>
@@ -116,6 +121,7 @@
                         <a href="{{ route('attendances.index') }}" class="block rounded-md px-3 py-2 text-sm font-medium text-[#4b3b2b] hover:bg-[#d8c2a7]/60 hover:text-[#2d1d0d]">Attendance</a>
                         <a href="{{ route('positions.index') }}" class="block rounded-md px-3 py-2 text-sm font-medium text-[#4b3b2b] hover:bg-[#d8c2a7]/60 hover:text-[#2d1d0d]">Positions</a>
                         <a href="{{ route('salaries.index') }}" class="block rounded-md px-3 py-2 text-sm font-medium text-[#4b3b2b] hover:bg-[#d8c2a7]/60 hover:text-[#2d1d0d]">Salaries</a>
+                        <a href="{{ route('shifts.index') }}" class="block rounded-md px-3 py-2 text-sm font-medium text-[#4b3b2b] hover:bg-[#d8c2a7]/60 hover:text-[#2d1d0d]">Shifts</a>
                     </div>
                 </div>
             </nav>

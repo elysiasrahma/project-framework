@@ -24,6 +24,7 @@
             <table class="min-w-full text-sm text-[#4b3b2b]">
                 <thead class="bg-[#f1e5d1] text-left">
                     <tr>
+                        <th class="px-4 py-2 border text-center">ID Karyawan</th>
                         <th class="px-4 py-2 border text-center">Nama Lengkap</th>
                         <th class="px-4 py-2 border text-center">Jabatan</th>
                         <th class="px-4 py-2 border text-center">Departemen</th>
@@ -39,6 +40,7 @@
                 <tbody>
                     @foreach($employees as $employee)
                     <tr>
+                        <td class="px-4 py-2 border text-center">{{ $employee->id }}</td>
                         <td class="px-4 py-2 border text-center">{{ $employee->nama_lengkap }}</td>
                         <td class="px-4 py-2 border text-center">{{ $employee->position ? $employee->position->nama_jabatan : '-' }}</td>
                         <td class="px-4 py-2 border text-center">{{ $employee->department ? $employee->department->nama_departemen : '-' }}</td>

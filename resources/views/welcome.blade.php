@@ -46,7 +46,7 @@
         </div>
     </div>
     <footer class="text-center py-4 text-[#4b3b2b] mt-10">
-        <p>&copy; {{ date('Y') }} App Pegawai Lizzy</p>
+        <p>&copy; {{ date('Y') }} App Pegawai Elysia</p>
     </footer>
     <!-- ini footernya ga muncul gimana caranya -->
 </body>

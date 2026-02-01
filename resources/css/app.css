@@ -1,0 +1,7 @@
+@import 'tailwindcss';
+
+@source "resource/views";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
